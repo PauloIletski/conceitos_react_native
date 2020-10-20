@@ -14,8 +14,9 @@
     "@types/jest": "^25.2.1",
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.1",
-    "react": "16.11.0",
-    "react-native": "0.62.1"
+    "react": "16.13.1",
+    "react-native": "0.63.3",
+    "react-native-update-gradle": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -23,7 +24,7 @@
     "@babel/plugin-transform-flow-strip-types": "^7.9.0",
     "@babel/runtime": "^7.9.2",
     "@react-native-community/eslint-config": "^1.0.0",
-    "@testing-library/react-native": "^5.0.3",
+    "@testing-library/react-native": "^6.0.0",
     "babel-jest": "^25.2.6",
     "eslint": "^6.8.0",
     "jest": "^25.2.7",

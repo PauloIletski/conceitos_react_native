@@ -19,14 +19,16 @@ export default function App() {
       setLikes(response.data);
     })
   }, [])
-
   async function handleLikeRepository(id) {
     // Implement "Like Repository" functionality
-    
-    const response = await api.post(`/repositories/${id}/like`);
-    const repository = response.data;
 
-    setLikes([...repositories,repository]);
+    const response = await api.post(`/repositories/${id}/like`);
+    const { likes } = response.data;
+
+    const newRepositories = repositories.map(repository => {
+      return repository.id === id ? { ...repository, likes } : repository
+    })
+    setLikes(newRepositories);
   }
 
   return (
@@ -36,13 +38,13 @@ export default function App() {
         <FlatList
           data={repositories}
           keyExtractor={repository => repository.id}
-          renderItem={({item:repository}) => (
+          renderItem={({ item: repository }) => (
             <View style={styles.repositoryContainer}>
               <Text style={styles.repository}>{repository.title}</Text>
               <View style={styles.techsContainer}>
                 {repository.techs.map((tech) =>
-                  <Text style={styles.tech} key={repository.id}>
-                    {tech}
+                  <Text style={styles.tech} key={tech}>
+                    {tech} 
                   </Text>)}
               </View>
 
@@ -52,7 +54,7 @@ export default function App() {
                   // Remember to replace "1" below with repository ID: {`repository-likes-${repository.id}`}
                   testID={`repository-likes-${repository.id}`}
                 >
-                  {repository.likes}
+                  `{repository.likes>1?repository.likes + " curtidas":repository.likes+"  curtida"}`
                 </Text>
               </View>
 
