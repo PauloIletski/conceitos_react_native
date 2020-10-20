@@ -19,7 +19,6 @@ export default function App() {
       setLikes(response.data);
     })
   }, [])
-
   async function handleLikeRepository(id) {
     // Implement "Like Repository" functionality
 
@@ -45,7 +44,7 @@ export default function App() {
               <View style={styles.techsContainer}>
                 {repository.techs.map((tech) =>
                   <Text style={styles.tech} key={tech}>
-                    {tech}
+                    {tech} 
                   </Text>)}
               </View>
 
@@ -55,7 +54,7 @@ export default function App() {
                   // Remember to replace "1" below with repository ID: {`repository-likes-${repository.id}`}
                   testID={`repository-likes-${repository.id}`}
                 >
-                  {repository.likes}
+                  `{repository.likes>1?repository.likes + " curtidas":repository.likes+"  curtida"}`
                 </Text>
               </View>
 
